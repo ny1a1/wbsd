@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+        <title>Flexbox & Псевдокласи</title>
+    </head>
+    <body>
+        <header>
+            <div class="header__container">
+                
+                <a href="index.html" class="header__logo">
+                    <img src="../static/images/8379454.png" alt="Логотип">
+                    <h1>Назва Бренду</h1>
+                </a>
+                
+                <nav class="header__nav">
+                    <ul>
+                        <li><a href="./index.html">Головна</a></li>
+                        <li><a href="./next_pr.html">Наступна практична</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header__actions">
+                    <a href="#" class="nav__item">Увійти</a>
+                </div>
+                
+            </div>
+        </header>
+        
+        <main class="main__content-container">
+            <aside class="sidebar left-sidebar">
+                <h2>Ліва Панель</h2>
+                <p>Бічна навігація або додаткова інформація. Тут можна розмістити фільтри або категорії.</p>
+                <ul>
+                    <li><a href="#">Посилання 1</a></li>
+                    <li><a href="#">Посилання 2</a></li>
+                    <li><a href="#">Посилання 3</a></li>
+                </ul>
+            </aside>
+            
+            <section class="content-block">
+                <h2>Центральний Блок Контенту</h2>
+                <p>Це основний контент сторінки. Ми використовуємо Flexbox для того, щоб цей блок займав найбільше місця, а бічні панелі – фіксовану ширину.</p>
+                <p>Текст для наповнення. Текст для наповнення. Текст для наповнення. Текст для наповнення. Текст для наповнення. Текст для наповнення. Текст для наповнення. Текст для наповнення.</p>
+                <p>Практика CSS Flexbox. Практика CSS Flexbox. Практика CSS Flexbox.</p>
+            </section>
+            
+            <aside class="sidebar right-sidebar">
+                <h2>Права Панель</h2>
+                <p>Реклама, додаткові новини або форма підписки. Цей блок також має фіксовану ширину.</p>
+                <p>Псевдокласи, такі як <b>:hover</b> і <b>:first-child</b>, допомагають зробити інтерфейс більш інтерактивним.</p>
+            </aside>
+        </main>
+        
+        <footer>
+            <div class="container footer__content">
+                <p>© 2025. Веб-орієнтована розробка ПЗ</p>
+                <nav class="footer__nav">
+                    <ul>
+                        <li><a href="#">Політика конфіденційності</a></li>
+                        <li><a href="#">Умови користування</a></li>
+                        <li><a href="#">Карта сайту</a></li>
+                    </ul>
+                </nav>
+                <p>Практична робота з Flexbox</p>
+            </div>
+        </footer>
+    </body>
+</html>
