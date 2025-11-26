@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Домашнє завдання – Шаблонні літерали та функції</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    button { margin: 10px; padding: 10px 15px; }
+    .output { margin: 15px 0; font-size: 18px; }
+  </style>
+</head>
+<body>
+
+  <h1>Домашнє завдання</h1>
+  <div id="output" class="output"></div>
+  <button id="btn1">1. Привітання</button>
+  <button id="btn2">2. Квадрат числа</button>
+  <button id="btn3">3. Периметр</button>
+  <button id="btn4">4. Калькулятор (callback)</button>
+  <button id="btn5">5-6. Об’єкт користувача</button>
+  <button id="btn6">7. Змінити текст кнопки</button>
+  <button id="btn7">8. Випадковий об’єкт</button>
+  <button id="btn8">9. Лічильник кліків</button>
+  <button id="btn9">10. Фільтр масиву</button>
+
+  <script>
+    const output = document.getElementById('output');
+
+    // 1. Функція привітання з шаблонним літералом
+    function greet(name) {
+      return `Привіт, ${name}!`;
+    }
+
+    document.getElementById('btn1').addEventListener('click', () => {
+      output.innerHTML = greet("Андрій");
+    });
+
+    // 2. Функція обчислення квадрата
+    function square(num) {
+      return num * num;
+    }
+
+    document.getElementById('btn2').addEventListener('click', () => {
+      const result = square(5);
+      output.innerHTML = `Квадрат числа 5 = ${result}`;
+    });
+
+    // 3. Стрілкова функція периметра прямокутника
+    const perimeter = (a, b) => 2 * (a + b);
+
+    document.getElementById('btn3').addEventListener('click', () => {
+      output.innerHTML = `Периметр прямокутника 4×6 = ${perimeter(4, 6)}`;
+    });
+
+    // 4. Callback-операції
+    function calc(a, b, operation) {
+      return operation(a, b);
+    }
+
+    document.getElementById('btn4').addEventListener('click', () => {
+      const sum = calc(10, 5, (x, y) => x + y);
+      const diff = calc(10, 5, (x, y) => x - y);
+      const prod = calc(10, 5, (x, y) => x * y);
+      const div = calc(10, 5, (x, y) => x / y);
+
+      output.innerHTML = `
+        Додавання: ${sum}<br>
+        Віднімання: ${diff}<br>
+        Множення: ${prod}<br>
+        Ділення: ${div}
+      `;
+    });
+
+    // 5-6. Об’єкт користувача з методом greet()
+    const user = {
+      name: "Alex",
+      age: 20,
+      greet() {
+        return `Привіт, я ${this.name}!`;
+      },
+      getInfo() {
+        return `User ${this.name} is ${this.age} years old`;
+      }
+    };
+
+    document.getElementById('btn5').addEventListener('click', () => {
+      output.innerHTML = `${user.getInfo()}<br>${user.greet()}`;
+    });
+
+    // 7. Зміна тексту кнопки по кліку
+    const btnChange = document.getElementById('btn6');
+    let clicked = false;
+    btnChange.addEventListener('click', function() {
+      if (!clicked) {
+        this.textContent = "Клікнуто!";
+        clicked = true;
+      } else {
+        this.textContent = "Змінити текст кнопки";
+        clicked = false;
+      }
+    });
+
+    // 8. Вивід випадкового об’єкта з масиву
+    const people = [
+      { name: "Олена", age: 25, city: "Київ" },
+      { name: "Максим", age: 30, city: "Львів" },
+      { name: "Софія", age: 19, city: "Одеса" },
+      { name: "Дмитро", age: 35, city: "Харків" }
+    ];
+
+    document.getElementById('btn7').addEventListener('click', () => {
+      const randomPerson = people[Math.floor(Math.random() * people.length)];
+      output.innerHTML = `Випадкова людина:<br>
+        Ім’я: ${randomPerson.name}<br>
+        Вік: ${randomPerson.age}<br>
+        Місто: ${randomPerson.city}`;
+    });
+
+    // 9. Лічильник кліків
+    const counterBtn = document.getElementById('btn8');
+    let clicks = 0;
+    counterBtn.addEventListener('click', () => {
+      clicks++;
+      counterBtn.textContent = `Клікнуто ${clicks} разів`;
+      output.innerHTML = `Всього кліків: ${clicks}`;
+    });
+
+    // 10. Фільтр масиву чисел
+    const numbers = [1, 5, 12, 23, 8, 17, 30, 4, 9];
+
+    document.getElementById('btn9').addEventListener('click', () => {
+      const evenNumbers = numbers.filter(num => num % 2 === 0);
+      const greaterThan10 = numbers.filter(num => num > 10);
+
+      output.innerHTML = `
+        Початковий масив: [${numbers.join(', ')}]<br><br>
+        Парні числа: [${evenNumbers.join(', ')}]<br>
+        Числа більше 10: [${greaterThan10.join(', ')}]
+      `;
+    });
+
+  </script>
+</body>
+</html>
